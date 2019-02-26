@@ -1,0 +1,15 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="picUpload text-center">
+        <form action="{% url 'mainapp:upload' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ upload_form.as_p }}
+            <br>
+            <button>Загрузить</button>
+        </form>
+        <a href="{% url 'mainapp:main' %}">на главную</a>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="text-center picList">
+        <ol>
+            {% for item in pictures %}
+                <a href="{% url 'mainapp:get_picture' pk=item.pk %}">
+                    <li class="picItem">Picture {{ item.pk }}</li>
+                </a>
+            {% endfor %}
+        </ol>
+        <a href="{% url 'mainapp:upload' %}">
+            <button>Загрузить изображение</button>
+        </a>
+    </div>
+{% endblock %}
