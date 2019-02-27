@@ -34,3 +34,5 @@ class PictureUpdateForm(forms.Form):
 
     def clean(self):
         cleaned_data = super().clean()
+        if cleaned_data['width'] < 1 or cleaned_data['height'] < 1 or cleaned_data['size'] < 1:
+            raise forms.ValidationError('Значения в полях должны быть больше 0')
